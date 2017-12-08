@@ -4,25 +4,26 @@
     index=totoc,
     parskip=half,
     chapterprefix]{scrbook}
+
 % In case you're using an earlier version of LaTeX
 \usepackage{etex}
 \reserveinserts{28}
 
 % Use utf-8 encoding for foreign characters
-\usepackage[utf8]{inputenc}  
-%\usepackage[LGR,T1]{fontenc}    
+\usepackage[utf8]{inputenc}
+%\usepackage[LGR,T1]{fontenc}
 
 % If Spanish characters are required.
-%\usepackage[greek,spanish]{babel}  
+%\usepackage[greek,spanish]{babel}
 \usepackage[pdftex]{graphicx}
 \usepackage{epstopdf}
+\usepackage{rotating}
 
 % Setup for fullpage use and change geometry:
 \usepackage[inner=60mm, outer=50mm, top=2.5cm, bottom=3cm]{geometry}
 %\usepackage{geometry}
 \usepackage{fullpage}
 
-%Setup for multicolumn use
 \usepackage{multicol}
 \usepackage{multirow}
 \usepackage{amsmath}
@@ -32,58 +33,59 @@
 \usepackage{tikz}
 \usepackage{IEEEtrantools}
 \usepackage{circuitikz}
-\usepackage{pgfplots}
 \usepackage{verbatim}
 \usepackage{schemabloc}
 \usepackage{latexsym}
 \usepackage{lscape}
 \usepackage{subfigure}
-\usepackage[final]{listofsymbols}
-%\usepackage[final]{listofsymbols} Use only for the final run TeX run.
+\usepackage{listofsymbols} % Comment this when you have to use the bottom one.
+%\usepackage[Final]{listofsymbols} %Use only for the final run TeX run.
+%\usepackage{glossaries}
+\usepackage{nomencl}
 \usepackage{yfonts}
 \usepackage{mathabx}
-
+\usepackage{wrapfig}
 %\usepackage[pdf]{pstricks}
-
 \usepackage{longtable}
 \usepackage{tabularx}
+\usepackage{setspace}
 %\usepackage{graphics}
 \usepackage{listings}
 \usepackage{array}
 %\usepackage[refpages]{gloss}
 \usepackage[colorinlistoftodos, textsize=footnotesize, textwidth=25mm]{todonotes}
-\usepackage{multirow} 
 \usepackage{textgreek}
-\usepackage[numbers]{natbib} % you're welcome on your awesome bibliography
+\usepackage[numbers]{natbib}
 
-\definecolor{LinkColor}{rgb}{0,0,0}
-\usepackage[%
-    pdftitle={MPhil Transfer Report Solis Lemus},%
-    pdfauthor={Jose Alonso Solis Lemus},%
-    pdfcreator={LaTeX with hyperref},
-    pdfsubject={Biomedical image analysis},
-    pdfkeywords={segmentation, tracking, image analysis}]{hyperref}
-\hypersetup{colorlinks=true,%
-    linkcolor=LinkColor,%
-    citecolor=LinkColor,%
-    filecolor=LinkColor,%
-    menucolor=LinkColor,%
-    urlcolor=LinkColor}
-  
+% Common definitions of the work.
+\newcommand{\autor}{AUTHOR's NAME}
+\newcommand{\titulo}{TITLE OF PROJECT}
+\newcommand{\myrefs}{./mphilrefs} % PATH of your bib file.
+
+
+\definecolor{lcolour}{rgb}{0,0,0}
+\usepackage[pdftitle={\titulo},
+    pdfauthor={\autor},
+    pdfcreator={LaTeX with hyperref}, pdfsubject={PPG},
+    pdfkeywords={biomedical, engineering}]{hyperref}
+\hypersetup{colorlinks=true, lcolour=lcolour, citecolor=lcolour,%
+    filecolor=lcolour,menucolor=lcolour, urlcolor=lcolour}
+
+\usepackage{xcolor, soul}   % ADDED 30/08/2016 for highlighting text
+\sethlcolor{olive}
+
 \definecolor{lightblue}{rgb}{0.8,0.85,1}
 \lstset{backgroundcolor=\color{lightblue}}
 
-% easy MATLAB code input (you need to get mcode first)
-%\usepackage[framed,numbered]{mcode}
+%\definecolor{insertref}{rgb}{255,255,0}
+\newcommand{\insertref}{\todo[color=yellow]}
+\newcommand{\vi}{\todo[noline, color=red]}
 
-\graphicspath{{./pics/}}
+% Add all your figures in the "./images" folder, order them and
+% then add the subfolders here for LaTeX to find them!
+\graphicspath{{./images/mfigs1}{./images/mfigs2}{./images/mfigs3}}
 
-%----------------------------------
-% Macros and definitions of the work.
-%----------------------------------
-\newcommand{\autor}{AUTHOR'S NAME}
-\newcommand{\titulo}{TITLE OF THE PROJECT}
-%\newcommand{\myrefs}{./mphilrefs} % PATH of your bib file.
+% For macros you define inside your own document
 \newcommand{\matlab}{\textsc{Matlab}\textsuperscript{\textregistered}}
 \newcommand{\ie}{\emph{i.e.}}
 
@@ -92,7 +94,7 @@
 \DeclareMathOperator{\mean}{mean}
 \DeclareMathOperator{\std}{std}
 
-% Useful for definitions and theorems
+% For definitions and theorems
 \newtheorem{teo}{Theorem}
 \newtheorem{dfn}{Definition}
 % ---------------------------------

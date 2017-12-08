@@ -1,11 +1,11 @@
 % This is the actual main file of the REPORT (thesis) being written. It calls upon
 % other files like the header, footer, as well as each of the individual chapters.
-% The structure is pretty straightforward. 
-% 
-% The location of each of the files: 
-% - docsettings/header.tex: contains all the document info, the pakages used and 
+% The structure is pretty straightforward.
+%
+% The location of each of the files:
+% - docsettings/header.tex: contains all the document info, the pakages used and
 % macros defined.
-% - docsettings/titlepage.tex: Contains the title page of the document, in case a 
+% - docsettings/titlepage.tex: Contains the title page of the document, in case a
 % specific one is required.
 % - docsettings/prologue.tex: Contains statements, acknowledgements, etc...
 % that would go before the actual contents.
@@ -14,30 +14,46 @@
 % - chapters/conclusion.tex: Final chapter.
 % - chapters/appY.tex: Appendix number Y of the document.
 %
-% It is advisable to place all the images within the ./pics folder, 
-% which is already preselected to hold the images. 
+% It is advisable to place all the images within the ./pics folder,
+% which is already preselected to hold the images.
 %
-% 
+
 \input{docsettings/header}
+\input{docsettings/abbrev}
+% When you need a glossary (At the end of document)
+%\input{docsettings/glossary}
 \begin{document}
 %\nocite{*}
-%---------------------------------
 \input{docsettings/titlepage}
 \pagenumbering{roman}
 %for 1.2 sptacing:
-%\renewcommand{\baselinestretch}{1.20}\normalsize
-%---------------------------------
+\renewcommand{\baselinestretch}{1.50}\normalsize
+
 \input{docsettings/prologue}
 \chapter*{Abstract}
-Abstract of your document goes here...
+This is where your abstract goes..
 \newpage
-%---------------------------------
+
 \tableofcontents
 \listoffigures
 \listoftables
-\listofsymbols 
-\input{docsettings/simbolos2}
+%\printglossary
+\printnomenclature
 \newpage
+\listofsymbols
+\input{docsettings/symbols}
+\newpage
+
+%$%$%$  ---------------------------------------------------------------  $%$%$%
+%\listoftodos TO SHOW YOUR TO DO LIST! TAKE OUT FOR FINAL
+% \todo{TESTING}
+% \todo[inline]{Tesing inline}
+% \missingfigure{Image test}
+% \todo[color=insertref]{This should be light yellow}
+% \todo[noline, color=insertref]{test}
+%\newpage
+
+%$%$%$  ---------------------------------------------------------------  $%$%$%
 \pagenumbering{arabic}
 %---------------------------------
 \input{chapters/intro}
@@ -52,4 +68,5 @@ Abstract of your document goes here...
 %---------------------------------
 \input{chapters/conclusion}
 %---------------------------------
-\input{docsettings/footer} 
+\input{docsettings/footer}
+\end{document}
